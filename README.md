@@ -81,9 +81,9 @@ AD_automate is a series of PowerShell script to handle AD basic tasks such as ad
 ### Generate fake users
 Run "Create_FakeADusers.py" to get a CSV filled of users. <br>
 By default, the generated columns are the following : <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/columns_fake_users.png" alt="Logo" width="320" height="46">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/columns_fake_users.png" alt="Logo" width="961" height="46">
 <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/columns_fake_users.png" alt="Logo" width="430" height="250">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/fake_users.png" alt="Logo" width="430" height="250">
 <br>
 You can edit the code to fit your need.<br>
 Changing the mail address<br>
@@ -99,12 +99,10 @@ Changing the number of user generated <br>
 "AddUsersToAD_CSV_Server.ps1" must be placed in "C:\temp\AD_Automate" as well as "AD_Users_sample.csv".<br>
 <br>
 Right click and run or edit "AddUsersToAD_CSV_Server.ps1".<br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script.PNG" alt="Logo" width="500" height="265">
-<br>
 You will be asked to enter the OU path where the users will be added in and to set a Password.<br>
 Type these information into the prompt.<br>
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script.PNG" alt="Logo" width="500" height="265">
-<br>
+<br><br>
 You'll get a message indicating how many users has been added as well as how many users are present now in the OU.
 <br>
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script_1.PNG" alt="Logo" width="500" height="265">
