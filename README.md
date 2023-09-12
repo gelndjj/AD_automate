@@ -80,20 +80,34 @@ AD_automate is a series of PowerShell script to handle AD basic tasks such as ad
 
 ### Generate fake users
 Run "Create_FakeADusers.py" to get a CSV filled of users. <br>
-By default, the generated columns are the following : <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/columns_fake_users.png" alt="Logo" width="961" height="46">
+By default, the generated columns are the following : 
 <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/fake_users.png" alt="Logo" width="430" height="250">
+```
+# Define the column headers
+    column_headers = ["First Name", "Last Name", "Display Name", "Description", "Email", "Address", "City", "ZIP Code",
+                      "sAMAccountName", "UPN", "Company", "Job Title", "Department"]
+```
 <br>
-You can edit the code to fit your need.<br>
-Changing the mail address<br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/edit1.png" alt="Logo" width="600" height="46">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/fake_users.png" alt="Logo" width="750" height="250">
 <br>
-Changing the domain name after the UPN <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/edit2.png" alt="Logo" width="600" height="46">
+You can edit the code to fit your need.
 <br>
-Changing the number of user generated <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/edit3.png" alt="Logo" width="600" height="46">
+<br>
+Changing the mail address :
+<br>
+
+```email = f"{first_name.lower()}.{last_name.lower()}@mybusiness.local"  # Adjust email address```
+<br>
+<br>
+Changing the domain name after the UPN : 
+<br>
+```UPN = f"{first_name.lower()}.{last_name.lower()}@mybusiness.local"```
+<br>
+<br>
+Changing the number of user generated : 
+<br>
+``` num_fake_users = 25  # Adjust this as needed ```
+<br>
 <br>
 ### Adding users to Active Directory
 "AddUsersToAD_CSV_Server.ps1" must be placed in "C:\temp\AD_Automate" as well as "AD_Users_sample.csv".<br>
@@ -101,14 +115,14 @@ Changing the number of user generated <br>
 Right click and run or edit "AddUsersToAD_CSV_Server.ps1".<br>
 You will be asked to enter the OU path where the users will be added in and to set a Password.<br>
 Type these information into the prompt.<br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script.PNG" alt="Logo" width="500" height="265">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script.PNG" alt="Logo" width="750" height="265">
 <br><br>
 You'll get a message indicating how many users has been added as well as how many users are present now in the OU.
 <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script_1.PNG" alt="Logo" width="500" height="265">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script_1.PNG" alt="Logo" width="750" height="265">
 <br>
 What the AD looks like now: <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_after_users.PNG" alt="Logo" width="500" height="265">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_after_users.PNG" alt="Logo" width="750" height="265">
 
 
 <!-- GETTING STARTED -->
