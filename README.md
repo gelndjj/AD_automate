@@ -78,7 +78,7 @@ AD_automate is a series of PowerShell script to handle AD basic tasks such as ad
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-### Generate fake users
+## Generate fake users
 Run "Create_FakeADusers.py" to get a CSV filled of users. <br>
 By default, the generated columns are the following : 
 <br>
@@ -109,7 +109,7 @@ Changing the number of user generated :
 ``` num_fake_users = 25  # Adjust this as needed ```
 <br>
 <br>
-### Adding users to Active Directory
+## Adding users to Active Directory
 "AddUsersToAD_CSV_Server.ps1" must be placed in "C:\temp\AD_Automate" as well as "AD_Users_sample.csv".<br>
 <br>
 Right click and run or edit "AddUsersToAD_CSV_Server.ps1".<br>
@@ -131,17 +131,6 @@ What the AD looks like now: <br>
 
 
 <!-- GETTING STARTED -->
-## Standalone APP
-
-Install pyintaller
-```
-pip install pyinstaller
-```
-Generate the standalone app
-```
-pyinstaller --onefile your_script_name.py
-```
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
