@@ -88,7 +88,7 @@ By default, the generated columns are the following :
                       "sAMAccountName", "UPN", "Company", "Job Title", "Department"]
 ```
 <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/fake_users.png" alt="Logo" width="750" height="250">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/fake_users.png" alt="Logo" width="650" height="250">
 <br>
 You can edit the code to fit your need.
 <br>
@@ -115,14 +115,14 @@ Changing the number of user generated :
 Right click and run or edit "AddUsersToAD_CSV_Server.ps1".<br>
 You will be asked to enter the OU path where the users will be added in and to set a Password.<br>
 Type these information into the prompt.<br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script.PNG" alt="Logo" width="750" height="265">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script.PNG" alt="Logo" width="650" height="265">
 <br><br>
 You'll get a message indicating how many users has been added as well as how many users are present now in the OU.
 <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script_1.PNG" alt="Logo" width="750" height="265">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script_1.PNG" alt="Logo" width="650" height="265">
 <br>
 What the AD looks like now: <br>
-<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_after_users.PNG" alt="Logo" width="750" height="265">
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_after_users.PNG" alt="Logo" width="650" height="265">
 
 
 <!-- GETTING STARTED -->
