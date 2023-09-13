@@ -180,7 +180,9 @@ You'll get a message indicating how many users has been added as well as how man
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_users_script_1.PNG" alt="Logo" width="750" height="400">
 <br>
 <br>
-What the AD looks like now: <br>
+What the AD looks like now:
+<br>
+<br>
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_after_users.PNG" alt="Logo" width="750" height="400">
 <br>
 ## Adding users to AD group(s)
@@ -199,6 +201,7 @@ if __name__ == "__main__":
     create_template(template_file)
 ```
 "CP_AllUsersInGRP1_2GRP2_CSV_sample.csv" will be created after running the script.
+<br>
 "AD_GRP_sample.csv" will be created after running the script.
 <br>
 Now let's copy/paste to this template the sAMAccountName from the users template created before and add some AD Groups.
@@ -207,7 +210,7 @@ Now let's copy/paste to this template the sAMAccountName from the users template
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/CSV_cp_users_grp.png" alt="Logo" width="750" height="400">
 <br>
 <br>
-In this example I have 2 Groups where I want to add users.
+In this example I have 2 Groups where I want to add users, GRP_ADMINISTRATION and GRP_PYTHON_TEST.
 <br>
 <br>
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_grp.png" alt="Logo" width="777" height="316">
@@ -259,9 +262,11 @@ Write in the specific columns the Group you want the users to be copied from and
 <br>
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/CSV_GRP2GRP.png" alt="Logo" width="487" height="569">
 <br>
-<br>
 Right click and run or edit "CP_AllUsersInGRP1_2GRP2_CSV.ps1".
 "CP_AllUsersInGRP1_2GRP2_CSV_sample.csv" must be placed in "C:\temp\AD_Automate" as well as "CP_AllUsersInGRP1_2GRP2_CSV.ps1". 
+
+## Extract users from a specific OU
+Pending
 
 <!-- GETTING STARTED -->
 
