@@ -269,6 +269,9 @@ Right click and run or edit "CP_AllUsersInGRP1_2GRP2_CSV.ps1".
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_script_grp2grp.png" alt="Logo" width="750" height="400">
 <br>
 <br>
+Once done, all the users from GRP_PYTHON_TEST will be now also in GRP_DOCKER.
+<br>
+<br>
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/grp2grp.PNG" alt="Logo" width="750" height="400">
 
 ## Extract users from a specific OU
