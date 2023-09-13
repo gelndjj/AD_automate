@@ -4,7 +4,7 @@ from faker import Faker
 # Function to create a CSV file with fake user data
 def create_fake_user_csv(file_name, headers, num_users):
     fake = Faker()
-    sAMAccountName_counter = 0  # Initialize the sAMAccountName counter
+    sAMAccountName_counter = 0
 
     with open(file_name, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
@@ -17,12 +17,12 @@ def create_fake_user_csv(file_name, headers, num_users):
             last_name = fake.last_name()
             display_name = f"{first_name} {last_name}"
             description = "Employee"  # Set description to "Employee"
-            email = f"{first_name.lower()}.{last_name.lower()}@mybusiness.local"  # Adjust email address
+            email = f"{first_name.lower()}.{last_name.lower()}@mybusiness.local"
             address = fake.street_address()
             city = fake.city()
             zip_code = fake.zipcode()
-            sAMAccountName = f"I{sAMAccountName_counter:07d}"  # Increment sAMAccountName
-            UPN = f"{first_name.lower()}.{last_name.lower()}@mybusiness.local"  # Set UPN as firstname.lastname@mybusiness.local
+            sAMAccountName = f"I{sAMAccountName_counter:07d}"
+            UPN = f"{first_name.lower()}.{last_name.lower()}@mybusiness.local"
             company = fake.company()
             job_title = fake.job()
             department = fake.bs()
