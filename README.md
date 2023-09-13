@@ -31,7 +31,6 @@
 </div>
 
 
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -55,10 +54,11 @@
 ## About The Project
 <div align="center">
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/main_windows.png" alt="Logo" width="628" height="293">
-</br>
-</br>
-AD_automate is a series of PowerShell script to handle AD basic tasks such as adding and removing users, copy users belonging to group to another group, extract users information into a CSV file etc ...  </br>
-</br>
+<br>
+<br>
+AD_automate is a series of PowerShell script to handle AD basic tasks such as adding and removing users, copy users belonging to group to another group, extract users information into a CSV file etc ...
+<br>
+<br>
 </div>Among the PowerShell scripts, there are some Python scripts that create CSV template, used to provide the necessary information the PS script needs to perform the action.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -264,6 +264,12 @@ Write in the specific columns the Group you want the users to be copied from and
 <br>
 Right click and run or edit "CP_AllUsersInGRP1_2GRP2_CSV.ps1".
 "CP_AllUsersInGRP1_2GRP2_CSV_sample.csv" must be placed in "C:\temp\AD_Automate" as well as "CP_AllUsersInGRP1_2GRP2_CSV.ps1". 
+<br>
+<br>
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_script_grp2grp.png" alt="Logo" width="750" height="400">
+<br>
+<br>
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/grp2grp.PNG" alt="Logo" width="750" height="400">
 
 ## Extract users from a specific OU
 Pending
