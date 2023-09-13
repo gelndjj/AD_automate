@@ -80,6 +80,61 @@ AD_automate is a series of PowerShell script to handle AD basic tasks such as ad
 
 ## Generate fake users
 Run "Create_FakeADusers.py" to get a CSV filled of users. <br>
+
+```import csv
+from faker import Faker
+
+# Function to create a CSV file with fake user data
+def create_fake_user_csv(file_name, headers, num_users):
+    fake = Faker()
+    sAMAccountName_counter = 0
+
+    with open(file_name, 'w', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+
+        # Write headers to the CSV file
+        csv_writer.writerow(headers)
+
+        for i in range(num_users):
+            first_name = fake.first_name()
+            last_name = fake.last_name()
+            display_name = f"{first_name} {last_name}"
+            description = "Employee"  # Set description to "Employee"
+            email = f"{first_name.lower()}.{last_name.lower()}@mybusiness.local" 
+            address = fake.street_address()
+            city = fake.city()
+            zip_code = fake.zipcode()
+            sAMAccountName = f"I{sAMAccountName_counter:07d}"
+            UPN = f"{first_name.lower()}.{last_name.lower()}@mybusiness.local"
+            company = fake.company()
+            job_title = fake.job()
+            department = fake.bs()
+
+            # Write fake user data to the CSV file
+            csv_writer.writerow(
+                [first_name, last_name, display_name, description, email, address, city, zip_code, sAMAccountName, UPN,
+                 company, job_title, department])
+
+            sAMAccountName_counter += 1
+
+    print(f"CSV file '{file_name}' filled with fake user data successfully.")
+
+
+if __name__ == "__main__":
+    # Define the column headers including "sAMAccountName" and "UPN" (without "Country")
+    column_headers = ["First Name", "Last Name", "Display Name", "Description", "Email", "Address", "City", "ZIP Code",
+                      "sAMAccountName", "UPN", "Company", "Job Title", "Department"]
+
+    # File name for the CSV file
+    csv_file_name = "AD_Users_sample.csv"
+
+    # Number of fake users to generate
+    num_fake_users = 25  # Adjust this as needed
+
+    # Create the CSV file with fake user data
+    create_fake_user_csv(csv_file_name, column_headers, num_fake_users)
+```
+
 By default, the generated columns are the following : 
 <br>
 ```
@@ -108,7 +163,6 @@ Changing the number of user generated :
 <br>
 ``` num_fake_users = 25  # Adjust this as needed ```
 <br>
-<br>
 ## Adding users to Active Directory
 "AddUsersToAD_CSV_Server.ps1" must be placed in "C:\temp\AD_Automate" as well as "AD_Users_sample.csv".<br>
 <br>
@@ -128,7 +182,86 @@ You'll get a message indicating how many users has been added as well as how man
 <br>
 What the AD looks like now: <br>
 <img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_after_users.PNG" alt="Logo" width="750" height="400">
+<br>
+## Adding users to AD group(s)
+Let's create a CSV template the same way for adding users to group(s).
+<br>
+```import csv
+def create_template(file_path):
+    with open(file_path, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerow(["sAMAccountName", "AD GROUP"])
 
+    print(f"CSV template created at {file_path}")
+
+if __name__ == "__main__":
+    template_file = "AD_GRP_sample.csv"
+    create_template(template_file)
+```
+"CP_AllUsersInGRP1_2GRP2_CSV_sample.csv" will be created after running the script.
+"AD_GRP_sample.csv" will be created after running the script.
+<br>
+Now let's copy/paste to this template the sAMAccountName from the users template created before and add some AD Groups.
+<br>
+<br>
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/CSV_cp_users_grp.png" alt="Logo" width="750" height="400">
+<br>
+<br>
+In this example I have 2 Groups where I want to add users.
+<br>
+<br>
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_grp.png" alt="Logo" width="777" height="316">
+<br>
+<br>
+Right click and run or edit "AddUsersToADGroup_CSV_Server.ps1".
+"AD_GRP_sample.csv" must be placed in "C:\temp\AD_Automate" as well as "AddUsersToADGroup_CSV_Server.ps1". 
+<br>
+<br>
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_run_grp_script.PNG" alt="Logo" width="750" height="400">
+<br>
+<br>
+Once done,you can see the users (from their sAMAccountName) has been added to the AD Groups present in the column AD_GROUP.
+<br>
+<br>
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/AD_after_grp.PNG" alt="Logo" width="886" height="519">
+<br>
+<br>
+## Copy all users from a AD Group to another.
+Let's create a CSV template.
+<br>
+```import csv
+import csv
+
+# Define the data for the CSV file
+data = [
+    {"FROM": "SourceGroup1", "TO": "DestinationGroup1"},
+    {"FROM": "SourceGroup2", "TO": "DestinationGroup2"},
+    # Add more rows as needed
+]
+
+# Specify the CSV file name
+csv_file = ("CP_AllUsersInGRP1_2GRP2_CSV_sample.csv")
+
+# Write the data to the CSV file
+with open(csv_file, mode="w", newline="") as file:
+    fieldnames = ["FROM", "TO"]
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerows(data)
+
+print(f"CSV file '{csv_file}' created successfully.")
+```
+<br>
+"CP_AllUsersInGRP1_2GRP2_CSV_sample.csv" will be created after running the script.
+<br>
+Write in the specific columns the Group you want the users to be copied from and the Group the users will be copied to.
+<br>
+<br>
+<img src="https://github.com/gelndjj/AD_automate/blob/main/resources/CSV_GRP2GRP.png" alt="Logo" width="487" height="569">
+<br>
+<br>
+Right click and run or edit "CP_AllUsersInGRP1_2GRP2_CSV.ps1".
+"CP_AllUsersInGRP1_2GRP2_CSV_sample.csv" must be placed in "C:\temp\AD_Automate" as well as "CP_AllUsersInGRP1_2GRP2_CSV.ps1". 
 
 <!-- GETTING STARTED -->
 
